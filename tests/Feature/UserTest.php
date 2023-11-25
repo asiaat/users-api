@@ -23,26 +23,19 @@ class UserTest extends TestCase
 
     public function test_user_can_retrieve_their_information()
     {
-         // Kasutaja loomine
-         $user = User::factory()->create();
-         // Kontrolli, kas token on olemas ja prindi see välja
+        $user = User::factory()->create();
         $this->assertNotEmpty($user);
         echo "\Generated  user: " . $user->lastname . "\n";
 
-         // Sanctum tokeni genereerimine
-         $token = $user->createToken('TestToken')->plainTextToken;
-         // Kontrolli, kas token on olemas ja prindi see välja
+        $token = $user->createToken('TestToken')->plainTextToken;
         $this->assertNotEmpty($token);
-        echo "\nGGenerated token: " . $token . "\n";
+        echo "\nGenerated token: " . $token . "\n";
  
-         // API päring koos tokeniga
-         $response = $this->withHeaders([
+        $response = $this->withHeaders([
              'Authorization' => 'Bearer ' . $token,
-         ])->getJson('/api/user');
-            
-         echo "\nContent of response: " . $response->content() . "\n";
+        ])->getJson('/api/user');
+        echo "\nContent of response: " . $response->content() . "\n";
  
-         // Testi vastuse kontrollimine
-         $response->assertStatus(200);
+        $response->assertStatus(200);
     }
 }

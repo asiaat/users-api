@@ -24,12 +24,17 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'firstname' => ['required', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255'],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            // #KO
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
         ]);
 
         event(new Registered($user));
@@ -37,5 +42,33 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         return response()->noContent();
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request)
+    {
+        $user = Auth::user(); // Tuvastab praeguse sisselogitud kasutaja
+
+        // Siin saate uuendada kasutaja andmeid $request'ist saadud andmetega
+        // Näiteks:
+        $user->name = $request->name;
+        $user->firstname = $request->firstname;
+        $user->lastname = $request->lastname;
+        // Jne...
+
+        $user->save(); // Salvestab muudatused
+
+        // Tagastage vastus, näiteks:
+        return response()->json(['message' => 'User updated successfully.']);
     }
 }
