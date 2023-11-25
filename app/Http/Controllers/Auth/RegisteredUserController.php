@@ -21,18 +21,17 @@ class RegisteredUserController extends Controller
     public function store(Request $request): Response
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'firstname' => ['required', 'string', 'max:255'],
-            'lastname' => ['required', 'string', 'max:255'],
+            'firstname' => ['required', 'string', 'max:100'],
+            'lastname' => ['required', 'string', 'max:100'],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            // #KO
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
         ]);
@@ -57,19 +56,15 @@ class RegisteredUserController extends Controller
      */
     public function update(Request $request)
     {
-        $user = Auth::user(); // Tuvastab praeguse sisselogitud kasutaja
+        $user = Auth::user(); 
 
-        // Siin saate uuendada kasutaja andmeid $request'ist saadud andmetega
-        // Näiteks:
-        $user->name = $request->name;
+        //$user->name = $request->name;
         $user->firstname = $request->firstname;
         $user->lastname = $request->lastname;
         $user->dateofbirth = $request->dateofbirth;
-        // Jne...
 
-        $user->save(); // Salvestab muudatused
+        $user->save(); 
 
-        // Tagastage vastus, näiteks:
         return response()->json(['message' => 'User updated successfully.']);
     }
 }
