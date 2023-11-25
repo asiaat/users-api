@@ -20,6 +20,7 @@ class CustomerUpdateTest extends TestCase
             'password' => bcrypt('password'),
             'firstname' => 'Original',
             'lastname' => 'Name',
+            'dateofbirth'=> '1969-10-15',
         ]);
 
         // Simuleerime kasutaja sisselogimist
@@ -30,6 +31,7 @@ class CustomerUpdateTest extends TestCase
             'name' => 'Updated Name',
             'firstname' => 'Updated',
             'lastname' => 'User',
+            'dateofbirth'=> '1969-10-16',
             // Lisage siia teised vajalikud väljad
         ]);
 
@@ -43,6 +45,7 @@ class CustomerUpdateTest extends TestCase
         $this->assertEquals('Updated Name', $user->name);
         $this->assertEquals('Updated', $user->firstname);
         $this->assertEquals('User', $user->lastname);
+        $this->assertEquals('1969-10-16', $user->dateofbirth);
         // Kontrollige siin teisi uuendatud välju
     }
 }

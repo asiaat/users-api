@@ -28,6 +28,7 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'firstname' => $this->faker->firstName,
             'lastname' => $this->faker->lastName,
+            'dateofbirth' => fake()->date(),
         ];
     }
 

@@ -64,6 +64,7 @@ class RegisteredUserController extends Controller
         $user->name = $request->name;
         $user->firstname = $request->firstname;
         $user->lastname = $request->lastname;
+        $user->dateofbirth = $request->dateofbirth;
         // Jne...
 
         $user->save(); // Salvestab muudatused
