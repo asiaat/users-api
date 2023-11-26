@@ -14,7 +14,7 @@ class CustomerUpdateTest extends TestCase
     public function test_user_can_update_their_information(): void
     {
         $user = User::factory()->create([
-            'name' => 'Original Name',
+            //'name' => 'Original Name',
             'email' => 'original@example.com',
             'password' => bcrypt('password'),
             'firstname' => 'Original',
@@ -25,7 +25,7 @@ class CustomerUpdateTest extends TestCase
         $this->actingAs($user);
 
         $response = $this->put('/update', [
-            'name' => 'Updated Name',
+            //'name' => 'Updated Name',
             'firstname' => 'Updated',
             'lastname' => 'User',
             'dateofbirth'=> '1969-10-16',
