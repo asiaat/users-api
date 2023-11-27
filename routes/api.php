@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\Auth\ProviderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\CustomerController;
+
+Route::get('/auth/google/redirect', [ProviderController::class, 'redirect']);
+Route::get('/auth/google/callback', [ProviderController::class, 'callback']);
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
@@ -14,3 +18,7 @@ Route::post('/register',
 
 Route::put('/customer', 
     [CustomerController::class, 'edit']);
+
+Route::post('/reset-password', [NewPasswordController::class, 'store'])
+    ->middleware('guest')
+    ->name('password.store');
