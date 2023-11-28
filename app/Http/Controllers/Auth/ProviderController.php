@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class ProviderController extends Controller
 {
@@ -31,12 +32,12 @@ class ProviderController extends Controller
         );
     
         $token = $user->createToken('authToken')->plainTextToken;
-    
-        return response()->json([
-            'user' => $user,
-            'token' => $token,
-        ]);
+
+        Auth::login($user);
            
+        return redirect()->to('http://localhost:3000/callback?token=' . $token );
+
+        
     } 
 
 
