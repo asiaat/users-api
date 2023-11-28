@@ -20,8 +20,8 @@ class GoogleAuthTest extends TestCase
     {
         //$this->startSession(); 
         $response = $this->get('api/auth/google/redirect');
-        $response->assertStatus(302); // Ootame suunamisstaatust
-        $response->assertRedirect(); // Kontrollime, kas suunamine toimub
+        $response->assertStatus(302); 
+        $response->assertRedirect(); 
     }
 
     
@@ -39,10 +39,8 @@ class GoogleAuthTest extends TestCase
             ->shouldReceive('user')
             ->andReturn($abstractUser);
 
-        // Test, et Google'i tagasikutsung töötleb kasutaja andmeid õigesti
         $response = $this->get('api/auth/google/callback');
-        $response->assertStatus(200); // Ootame edukat vastust
-        // Siin võite lisada täiendavaid kontrollimisi, et veenduda, et kasutaja andmed on õigesti töödeldud
+        $response->assertStatus(200); 
     }
     
 }
