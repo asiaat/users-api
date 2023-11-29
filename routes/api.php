@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\Auth\NewPasswordController;
 
 Route::get('/auth/google/redirect', [ProviderController::class, 'redirect']);
 Route::get('/auth/google/callback', [ProviderController::class, 'callback']);
