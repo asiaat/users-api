@@ -1,6 +1,4 @@
-Absolutely, here's the complete installation guide in one piece, formatted for your GitHub `README.md` file:
 
-```markdown
 # Customer API Installation Guide
 
 ## Overview
@@ -71,4 +69,4 @@ After completing these steps, your "Customer" API should be fully set up and ope
 - Ensure that all environment variables in the `.env` file are correctly set to avoid any configuration issues.
 - Regularly update your dependencies with Composer to maintain the latest versions.
 - Keep your PHP version updated to the latest stable release for optimal performance and security.
-```
+
