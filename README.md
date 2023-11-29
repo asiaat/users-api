@@ -6,7 +6,7 @@
     <title>Customer API Installation Guide</title>
 </head>
 <body>
-    <h1>API Installation Guide for "Customer" Technical Specification</h1>
+    <h1>API Installation Guide for "Customer App" Technical Specification</h1>
 
     <h2>Overview</h2>
     <p>This guide provides a comprehensive walkthrough for setting up the "Customer" API, a Laravel-based project, from cloning the repository to running tests. Follow these steps to ensure a smooth installation and setup process.</p>
