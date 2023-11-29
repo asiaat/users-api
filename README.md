@@ -125,6 +125,4 @@ This section details the configuration of Google Authentication for the API in a
 - If authentication fails, verify that the `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` are correctly set in the `.env` file.
 - Ensure that the redirect URI in the Laravel application matches the one set in the Google API Console.
 - Check for any domain mismatches or typos in the Google API Console settings.
-```
-
-This guide is now tailored to your development environment, focusing on local testing with `localhost` URLs. Ensure that these settings match your actual development setup.
+- This guide focusing on local testing with `localhost` URLs. Ensure that these settings match your actual development setup.
