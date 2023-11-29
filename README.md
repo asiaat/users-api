@@ -62,17 +62,6 @@ Execute the Laravel tests to verify that everything is functioning as expected:
 php artisan test
 ```
 
-## Post-Installation
-After completing these steps, your "Customer" API should be fully set up and operational in your local development environment. You can start developing and testing your API endpoints as per your project requirements.
-
-## Notes
-- Ensure that all environment variables in the `.env` file are correctly set to avoid any configuration issues.
-- Regularly update your dependencies with Composer to maintain the latest versions.
-- Keep your PHP version updated to the latest stable release for optimal performance and security.
-
-Absolutely, I can adjust the Google Authentication setup section to reflect the settings for your test/development environment. Here's the updated section:
-
-
 # Google Authentication Setup 
 
 ## Overview
@@ -126,3 +115,16 @@ This section details the configuration of Google Authentication for the API in a
 - Ensure that the redirect URI in the Laravel application matches the one set in the Google API Console.
 - Check for any domain mismatches or typos in the Google API Console settings.
 - This guide focusing on local testing with `localhost` URLs. Ensure that these settings match your actual development setup.
+
+
+## Post-Installation
+After completing these steps, your "Customer" API should be fully set up and operational in your local development environment. You can start developing and testing your API endpoints as per your project requirements.
+
+## Notes
+- Ensure that all environment variables in the `.env` file are correctly set to avoid any configuration issues.
+- Regularly update your dependencies with Composer to maintain the latest versions.
+- Keep your PHP version updated to the latest stable release for optimal performance and security.
+
+Absolutely, I can adjust the Google Authentication setup section to reflect the settings for your test/development environment. Here's the updated section:
+
+
